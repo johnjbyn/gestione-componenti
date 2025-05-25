@@ -1,0 +1,22 @@
+@if(transazione) {
+<div class="card" 
+     [ngClass]="{
+       'verde': transazione.type === 'invoice',
+       'grigio': transazione.type === 'withdrawal'
+     }">
+  <div class="card-body">
+    <h5 class="card-title">{{ transazione.business | uppercase }}</h5>
+    <p class="card-text">{{ transazione.name }}</p>
+    <p><strong>Account:</strong> {{ transazione.account }}</p>
+    <p><strong>Data:</strong> {{ convertTimestamp(transazione.date) | date:'dd/MM/yyyy' }}</p>
+    <p><strong>Tipo:</strong> {{ transazione.type | uppercase }}</p>
+    <p><strong>Tipo:</strong> {{ transazione.type | uppercase }}</p>
+    <p class="amount">
+      <strong>Amount:</strong> 
+      <span [ngClass]="{'sfondo-giallo': transazione.amount > 700}">
+        {{ transazione.amount | currency:'USD':'symbol':'1.2-2' }}
+      </span>
+    </p>
+  </div>
+</div>
+}

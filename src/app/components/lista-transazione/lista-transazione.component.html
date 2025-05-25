@@ -1,0 +1,5 @@
+<div class="lista-container">
+  @for (transazione of transactions; track transazione.account) {
+    <app-dati-transazione [transazione]="transazione"></app-dati-transazione>
+  }
+</div>
